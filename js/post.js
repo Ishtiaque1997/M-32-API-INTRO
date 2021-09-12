@@ -15,6 +15,23 @@ function displayPosts(posts){
   <p>${post.body}</p>
   `
   postContainer.appendChild(div);
-  console.log(post)
+  // console.log(post)
  }
 }
+//post method
+function addAPost(){
+ fetch('https://jsonplaceholder.typicode.com/posts',{
+  method:'POST',//specify the method
+  body:JSON.stringify({
+   title:'my new post',
+   body:'this is all',
+   userId:1
+  }),//body of the post
+  headers:{'Content-type': 'application/json; charset=UTF-8' ,
+ }//headers 
+ })
+ .then(res=>res.json())
+ .then(data=>console.log(data))
+}
+addAPost();
+//other methods are there like post,update/patch.delete
